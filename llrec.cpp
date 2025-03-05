@@ -11,13 +11,13 @@ void llpivot (Node*& head, Node*& smaller, Node*& larger, int pivot){
     return;
   }
   Node* temp = head;
-  head = NULL;
+  head = head->next;
   if(temp->val <= pivot){
     smaller = temp;
-    llpivot(temp->next, smaller->next, larger, pivot);
+    llpivot(head, smaller->next, larger, pivot);
   }
   else{
     larger = temp;
-    llpivot(temp->next, smaller, larger->next, pivot);
+    llpivot(head, smaller, larger->next, pivot);
   }
 }
